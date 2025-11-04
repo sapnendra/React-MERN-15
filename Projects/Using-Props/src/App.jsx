@@ -6,7 +6,11 @@ const App = () => {
   const [isSignIn, setIsSignIn] = useState(false);
   return (
     <div className="p-10">
-      {isSignIn ? <Login setIsSignIn={setIsSignIn} /> : <Register setIsSignIn={setIsSignIn} />}
+      {isSignIn ? (
+        <Login setIsSignIn={setIsSignIn} />
+      ) : (
+        <Register setIsSignIn={setIsSignIn} />
+      )}
     </div>
   );
 };

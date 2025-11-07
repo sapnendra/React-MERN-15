@@ -9,6 +9,7 @@ const Login = ({ setIsSignIn }) => {
 
     if (localStorage.getItem("registeredUser")) {
       let registeredUser = JSON.parse(localStorage.getItem("registeredUser"));
+
       if (
         registeredUser.username === username &&
         registeredUser.password === password
@@ -86,7 +87,7 @@ const Login = ({ setIsSignIn }) => {
             <p>
               Don't have an account?{" "}
               <span
-                onClick={() => setIsSignIn(prev => !prev)}
+                onClick={() => setIsSignIn((prev) => !prev)}
                 className="text-blue-500 font-semibold cursor-pointer"
               >
                 Register

@@ -14,6 +14,18 @@ const Login = ({ setToggle }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const regUsers = JSON.parse(localStorage.getItem("users"));
+
+    const found = regUsers.find(
+      (u) => u.username?.toString().trim() === user.username.toString().trim() && u.password === user.password
+    );
+
+    if (found) {
+      alert("Login successful");
+    } else {
+      alert("Invalid credentials or user not registered yet.");
+    }
+
     setUser({
       username: "",
       password: "",

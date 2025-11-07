@@ -14,10 +14,10 @@ const Register = ({ setToggle, usersArray, setUsersArray }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    setUsersArray([...usersArray, formData]);
-    localStorage.setItem("users", JSON.stringify(usersArray));
-    alert("Registration Successful");
+    const updatedUsers = [...usersArray, formData];
+    setUsersArray(updatedUsers);
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    alert("Registration Successfully");
 
     setFormData({
       fullname: "",

@@ -35,20 +35,25 @@ const App = () => {
       </div>
 
       <div className="border-gray-600 p-2 rounded-lg flex flex-wrap gap-2 shrink-0">
-        {registeredUsers.map((user, idx) => {
-          return (
-            <div
-              key={idx}
-              className="w-60 bg-white flex items-center justify-between gap-5 py-2 px-5 rounded-lg"
-            >
-              <img
-                className="h-15 w-15 object-cover rounded-full"
-                src={getImg()}
-              />
-              <h2 className="text-black font-2xl font-bold">{user.fullname}</h2>
-            </div>
-          );
-        })}
+        {registeredUsers && registeredUsers.length > 0 ? (
+          registeredUsers.map((user, idx) => {
+            return (
+              <div
+                key={idx}
+                className="w-fit bg-white flex items-center justify-between gap-5 py-2 px-5 rounded-lg"
+              >
+                <img
+                  className="h-20 w-20 object-cover rounded-full"
+                  src={getImg()}
+                  alt={user.fullname}
+                />
+                <h2 className="text-black text-2xl font-bold">{user.fullname}</h2>
+              </div>
+            );
+          })
+        ) : (
+          <h3 className="text-white">No Users</h3>
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = ({ setToggle, usersArray, setUsersArray }) => {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const Register = ({ setToggle, usersArray, setUsersArray }) => {
     const updatedUsers = [...usersArray, formData];
     setUsersArray(updatedUsers);
     localStorage.setItem("users", JSON.stringify(updatedUsers));
-    alert("Registration Successfully");
+    toast.success("Registration Successful", {position: "top-left"});
 
     setFormData({
       fullname: "",
@@ -76,6 +77,7 @@ const Register = ({ setToggle, usersArray, setUsersArray }) => {
           </span>
         </p>
       </form>
+      <ToastContainer />
     </div>
   );
 };

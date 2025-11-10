@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = ({ setToggle }) => {
   const [user, setUser] = useState({
@@ -17,13 +18,19 @@ const Login = ({ setToggle }) => {
     const regUsers = JSON.parse(localStorage.getItem("users"));
 
     const found = regUsers.find(
-      (u) => u.username?.toString().trim() === user.username.toString().trim() && u.password === user.password
+      (u) =>
+        u.username?.toString().trim() === user.username.toString().trim() &&
+        u.password === user.password
     );
 
     if (found) {
-      alert("Login successful");
+      toast.success("Login Successful", {
+        position: "top-left",
+      });
     } else {
-      alert("Invalid credentials or user not registered yet.");
+      toast.error("Invalid credentials", {
+        position: "top-left",
+      });
     }
 
     setUser({
@@ -71,6 +78,7 @@ const Login = ({ setToggle }) => {
           </span>
         </p>
       </form>
+      <ToastContainer />
     </div>
   );
 };

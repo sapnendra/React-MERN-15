@@ -13,7 +13,7 @@ const images = [
 const App = () => {
   const [toggle, setToggle] = useState(true);
   const [usersArray, setUsersArray] = useState([]);
-  const registeredUsers = JSON.parse(localStorage.getItem("users"));
+  const registeredUsers = JSON.parse(localStorage.getItem("users")) || [];
 
   const getImg = () => {
     const index = Math.floor(Math.random() * images.length);
@@ -47,12 +47,16 @@ const App = () => {
                   src={getImg()}
                   alt={user.fullname}
                 />
-                <h2 className="text-black text-2xl font-bold">{user.fullname}</h2>
+                <h2 className="text-black text-2xl font-bold">
+                  {user.fullname}
+                </h2>
               </div>
             );
           })
         ) : (
-          <h3 className="text-white">No Users</h3>
+          <h3 className="w-50 mx-auto text-2xl text-red-500 bg-yellow-300 font-bold px-8 py-2 rounded-lg text-center">
+            No Users
+          </h3>
         )}
       </div>
     </div>

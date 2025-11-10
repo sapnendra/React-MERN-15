@@ -43,6 +43,7 @@ const Login = ({ setToggle }) => {
     <div className="flex flex-col gap-5 text-center w-100">
       <h1 className="text-3xl text-white font-bold">Login Form</h1>
       <form
+        autoComplete="off"
         className="flex flex-col gap-4 border border-gray-500 py-8 px-4 rounded-md"
         onSubmit={(e) => handleSubmit(e)}
       >

@@ -18,7 +18,7 @@ const Register = ({ setToggle, usersArray, setUsersArray }) => {
     const updatedUsers = [...usersArray, formData];
     setUsersArray(updatedUsers);
     localStorage.setItem("users", JSON.stringify(updatedUsers));
-    toast.success("Registration Successful", {position: "top-left"});
+    toast.success("Registration Successful", { position: "top-left" });
 
     setFormData({
       fullname: "",
@@ -31,6 +31,7 @@ const Register = ({ setToggle, usersArray, setUsersArray }) => {
     <div className="flex flex-col gap-5 text-center w-100">
       <h1 className="text-3xl text-white font-bold">Registration Form</h1>
       <form
+        autoComplete="off"
         className="flex flex-col gap-4 border border-gray-500 py-8 px-4 rounded-md"
         onSubmit={handleSubmit}
       >

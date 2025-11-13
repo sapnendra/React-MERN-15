@@ -4,15 +4,20 @@ const App = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
+  const handleFormSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
   return (
-    <div className="h-screen bg-[#000] flex flex-col gap-4 items-center justify-center">
+    <div className="h-screen bg-black flex flex-col gap-4 items-center justify-center">
       <h1 className="text-3xl font-bold text-white">React Hook Form</h1>
       <form
         className="flex flex-col gap-5 border border-gray-400 rounded-lg p-10"
-        onSubmit={handleSubmit((data) => console.log(data))}
+        onSubmit={handleSubmit(handleFormSubmit)}
       >
         <input
           placeholder="First name..."

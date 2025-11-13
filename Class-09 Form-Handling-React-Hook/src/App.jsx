@@ -12,8 +12,10 @@ const images = [
 
 const App = () => {
   const [toggle, setToggle] = useState(true);
-  const [usersArray, setUsersArray] = useState([]);
   const registeredUsers = JSON.parse(localStorage.getItem("users")) || [];
+  const [usersArray, setUsersArray] = useState(() => {
+    return registeredUsers;
+  });
 
   const getImg = () => {
     const index = Math.floor(Math.random() * images.length);

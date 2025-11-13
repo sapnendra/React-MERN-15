@@ -17,6 +17,15 @@ const Login = ({ setToggle }) => {
 
     const regUsers = JSON.parse(localStorage.getItem("users"));
 
+    const flag = regUsers.find((u) => u.username === user.username);
+
+    if (flag) {
+      toast.error("User not exists", {
+        position: "top-left",
+      });
+      return;
+    }
+
     const found = regUsers.find(
       (u) =>
         u.username?.toString().trim() === user.username.toString().trim() &&

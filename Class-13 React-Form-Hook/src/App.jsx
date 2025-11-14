@@ -22,20 +22,21 @@ const App = () => {
         <input
           placeholder="First name..."
           className="active:outline-none text-white border border-gray-600 px-6 py-2 rounded-lg"
-          {...register("firstName")}
+          {...register("firstName", {required: true})}
         />
+        {errors.firstName && errors.firstName.type == "required" ? <p className="text-red-500">Name is Required</p> : ""}
         <input
           placeholder="Last name..."
           className="active:outline-none text-white border border-gray-600 px-6 py-2 rounded-lg"
           {...register("lastName", { required: true })}
         />
-        {errors.lastName && <p>Last name is required.</p>}
+        {errors.lastName && <p className="text-red-500">Last name is required.</p>}
         <input
           placeholder="Your age..."
           className="active:outline-none text-white border border-gray-600 px-6 py-2 rounded-lg"
-          {...register("age", { pattern: /\d+/ })}
+          {...register("age", { pattern: /\d+/, required: true })}
         />
-        {errors.age && <p>Please enter number for age.</p>}
+        {errors.age && <p className="text-red-500">Please enter number for age.</p>}
         <input
           placeholder="Input field..."
           className="active:outline-none text-white border border-gray-600 px-6 py-2 rounded-lg bg-blue-500"

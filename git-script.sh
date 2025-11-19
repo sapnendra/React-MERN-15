@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "changes in readme file"
+git commit -m "Add new class content"
 git push

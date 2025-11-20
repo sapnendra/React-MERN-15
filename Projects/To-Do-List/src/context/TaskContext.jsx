@@ -1,11 +1,12 @@
-import { Children, createContext, useActionState, useState } from "react";
-
-export const MyTask = createContext();
-
-const [tasks, setTasks] = useState([])
-
-let value = {tasks, setTasks}
-
-const TaskContainer = () => {
-  return <MyTask.Provider value={value}>{Children}</MyTask.Provider>;
+import { useState } from "react";
+import { MyTask } from "./CreateContext.jsx";
+const TaskContext = ({ children }) => {
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
+  return (
+    <MyTask.Provider value={{ tasks, setTasks }}>{children}</MyTask.Provider>
+  );
 };
+
+export default TaskContext;

@@ -40,7 +40,7 @@ const Register = ({ setToggle, usersArray, setUsersArray }) => {
           value={formData.fullname}
           onChange={(e) => handleChange(e)}
           required
-          className="rounded-lg border border-gray-600 px-5 py-2 text-white text-white"
+          className="rounded-lg border border-gray-600 px-5 py-2 text-white"
           type="text"
           placeholder="Full Name"
         />
@@ -49,7 +49,7 @@ const Register = ({ setToggle, usersArray, setUsersArray }) => {
           value={formData.username}
           onChange={(e) => handleChange(e)}
           required
-          className="rounded-lg border border-gray-600 px-5 py-2 text-white text-white"
+          className="rounded-lg border border-gray-600 px-5 py-2 text-white"
           type="text"
           placeholder="username"
         />
@@ -58,7 +58,7 @@ const Register = ({ setToggle, usersArray, setUsersArray }) => {
           value={formData.password}
           onChange={(e) => handleChange(e)}
           required
-          className="rounded-lg border border-gray-600 px-5 py-2 text-white text-white"
+          className="rounded-lg border border-gray-600 px-5 py-2 text-white"
           type="password"
           placeholder="Password"
         />

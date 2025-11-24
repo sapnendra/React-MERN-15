@@ -2,23 +2,27 @@ import React, { useContext } from "react";
 import { MyTask } from "../context/CreateContext";
 
 const List = () => {
-  const { tasks, setTasks } = useContext(MyTask);
+  const { tasks, setTasks, setId } = useContext(MyTask);
 
-  const handleUpdate = (id) => {
-    const newTask = prompt("Enter updated task:");
-    if (newTask) {
-      const updatedTasks = tasks.map((item) =>
-        item.id === id ? { ...item, task: newTask } : item
-      );
-      setTasks(updatedTasks);
-      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-    }
-  };
+  // const handleUpdate = (id) => {
+  //   const newTask = prompt("Enter updated task:");
+  //   if (newTask) {
+  //     const updatedTasks = tasks.map((item) =>
+  //       item.id === id ? { ...item, task: newTask } : item
+  //     );
+  //     setTasks(updatedTasks);
+  //     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  //   }
+  // };
 
   const handleDelete = (id) => {
     const deleteTasks = tasks.filter((item) => item.id !== id);
     setTasks(deleteTasks);
     localStorage.setItem("tasks", JSON.stringify(deleteTasks));
+  };
+
+  const handleUpdate = (id) => {
+    setId(id);
   };
 
   return (

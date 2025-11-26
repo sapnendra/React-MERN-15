@@ -15,8 +15,7 @@ const List = ({ item }) => {
   };
 
   const changeContent = (id) => {
-    const overWriteTask = tasks.find((item) => item.id === id);
-    console.log(overWriteTask);
+    const overWriteTask = tasks.find(item => item.id === id);
     overWriteTask.task = taskRef.current.innerText;
     setIsEditable(!isEditable);
     setTasks([...tasks]);

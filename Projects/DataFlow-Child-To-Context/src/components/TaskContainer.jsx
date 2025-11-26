@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import List from "./List";
-import { MyInput } from "../context/InputContext";
+import { MyTask } from "../context/InputContext";
 
 const TaskContainer = () => {
-  const {text} = useContext(MyInput);
+  const { tasks } = useContext(MyTask);
 
   return (
-    <div className="border h-70 overflow-y-auto scrollbar-none rounded-lg p-5 mt-4">
-      <h1 className="text-2xl font-semibold">Tasks -</h1>
+    <div className="border h-150 overflow-y-auto scrollbar-none rounded-lg p-5 mt-4">
+      <h1 className="text-2xl font-semibold">Recent Tasks</h1>
 
-      {text.map((item, idx) => {
+      {tasks && tasks.map((item, idx) => {
         return <List key={idx} item={item} />;
       })}
     </div>

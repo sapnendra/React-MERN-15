@@ -1,12 +1,13 @@
 import { createContext, useState } from "react";
 
-export const MyInput = createContext();
+export const MyTask = createContext();
 
 const InputContext = ({ children }) => {
-  const [text, setText] = useState([]);
-  console.log(text);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+  console.log(tasks);
+
   return (
-    <MyInput.Provider value={{text, setText }}>{children}</MyInput.Provider>
+    <MyTask.Provider value={{ tasks, setTasks }}>{children}</MyTask.Provider>
   );
 };
 

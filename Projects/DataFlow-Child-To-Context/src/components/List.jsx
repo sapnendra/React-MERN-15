@@ -15,19 +15,19 @@ const List = ({ item }) => {
   };
 
   const changeContent = (id) => {
-    const overWriteTask = tasks.find(item => item.id === id);
+    const overWriteTask = tasks.find((item) => item.id === id);
     overWriteTask.task = taskRef.current.innerText;
     setIsEditable(!isEditable);
     setTasks([...tasks]);
-    localStorage.setItem("tasks", JSON.stringify(tasks))
-    alert.warning("Task updated...!")
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    alert.warning("Task updated...!");
   };
 
   const handleDelete = (id) => {
     const deletedTasks = tasks.filter((item) => item.id !== id);
     setTasks(deletedTasks);
-    localStorage.setItem("tasks", JSON.stringify(deletedTasks))
-    alert.success("Task deleted...!")
+    localStorage.setItem("tasks", JSON.stringify(deletedTasks));
+    alert.success("Task deleted...!");
   };
 
   return (

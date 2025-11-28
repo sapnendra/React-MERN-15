@@ -3,6 +3,7 @@ import Home from "./components/Home"
 import Faq from "./components/Faq"
 import Contact from "./components/Contact"
 import About from "./components/About"
+import Products from "./components/Products"
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         </Link>
         <div className="flex gap-20">
           <Link to={"/"} className="text-2xl font-medium text-white">Home</Link>
+          <Link to={"/products"} className="text-2xl font-medium text-white">Products</Link>
           <Link to={"/about"} className="text-2xl font-medium text-white">About</Link>
           <Link to={"/contact"} className="text-2xl font-medium text-white">Contact</Link>
           <Link to={"/faq"} className="text-2xl font-medium text-white">FAQ</Link>
@@ -21,6 +23,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/products" element={<Products />}/>
         <Route path="/about" element={<About />}/>
         <Route path="/contact" element={<Contact />}/>
         <Route path="/faq" element={<Faq />}/>

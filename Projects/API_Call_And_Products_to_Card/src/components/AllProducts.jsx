@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { MyCart } from "../context/CartContext";
 import ChangeQuantity from "./ChangeQuantity";
+import {alert} from "react-alertify-mini";
 
 const AllProducts = ({ item }) => {
   const { cartItems, setCartItems } = useContext(MyCart);
@@ -11,6 +12,7 @@ const AllProducts = ({ item }) => {
   const handleCart = () => {
     setCartItems((prev) => [...prev, { ...item, quantity }]);
     setQuantity(1);
+    alert.success("Item added to cart");
   };
 
   const handleQuantityChange = (newQuantity) => {
@@ -18,6 +20,7 @@ const AllProducts = ({ item }) => {
       setCartItems((prev) =>
         prev.filter((cartItem) => cartItem.id !== item.id)
       );
+      alert.error("Item removed from cart");
       return;
     }
     setCartItems((prev) =>

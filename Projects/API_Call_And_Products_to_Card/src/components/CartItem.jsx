@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { MyCart } from "../context/CartContext";
+import ChangeQuantity from "./ChangeQuantity";
 
 const CartItem = ({ item }) => {
   return (
@@ -13,6 +14,7 @@ const CartItem = ({ item }) => {
       </div>
       <h2 className="text-2xl text-center my-1 font-bold">{item.title}</h2>
       <p className="text-center text-xl font-semibold">{item.category}</p>
+      <p className="text-center text-xl font-semibold">Item quantity: {item.quantity}</p>
       <div className="flex items-center gap-10 mt-4">
         <button className="px-6 py-2 hover:scale-105 duration-200 active:scale-95 rounded-lg bg-blue-600 text-lg font-bold">
           Checkout

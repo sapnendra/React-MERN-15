@@ -1,12 +1,32 @@
 import { useContext, useState } from "react";
 import { MyCart } from "../context/CartContext";
+import ChangeQuantity from "./ChangeQuantity";
 
 const AllProducts = ({ item }) => {
-  const { setCartItems, quantity, setQuantity } = useContext(MyCart);
+  const { cartItems, setCartItems } = useContext(MyCart);
+  const [quantity, setQuantity] = useState(1);
 
+  const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
 
   const handleCart = () => {
     setCartItems((prev) => [...prev, { ...item, quantity }]);
+    setQuantity(1);
+  };
+
+  const handleQuantityChange = (newQuantity) => {
+    if (newQuantity < 1) {
+      setCartItems((prev) =>
+        prev.filter((cartItem) => cartItem.id !== item.id)
+      );
+      return;
+    }
+    setCartItems((prev) =>
+      prev.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: newQuantity }
+          : cartItem
+      )
+    );
   };
 
   return (
@@ -25,7 +45,7 @@ const AllProducts = ({ item }) => {
           Buy Now
         </button>
 
-        {quantity < 1 ? (
+        {!existingItem ? (
           <button
             onClick={handleCart}
             className="px-6 py-2 hover:scale-105 duration-200 active:scale-95 rounded-lg bg-yellow-600 text-lg font-bold cursor-pointer"
@@ -33,23 +53,10 @@ const AllProducts = ({ item }) => {
             Add to Cart
           </button>
         ) : (
-          <div className="py-2 rounded-lg text-black bg-white font-bold flex items-center">
-            <button
-              onClick={() => setQuantity((prev) => prev - 1)}
-              className="text-lg cursor-pointer px-4"
-            >
-              -
-            </button>
-            <button className="text-xl border-x border-gray-400 px-4">
-              {quantity}
-            </button>
-            <button
-              onClick={() => setQuantity((prev) => prev + 1)}
-              className="text-lg cursor-pointer px-4"
-            >
-              +
-            </button>
-          </div>
+          <ChangeQuantity
+            quantity={existingItem.quantity}
+            setQuantity={(newQty) => handleQuantityChange(newQty)}
+          />
         )}
       </div>
     </div>

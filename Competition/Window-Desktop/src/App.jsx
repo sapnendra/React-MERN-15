@@ -30,19 +30,19 @@ const App = () => {
       <div className="absolute z-99 bottom-0 flex items-center justify-center gap-8 w-full bg-black/50 py-3">
         <img
           onClick={() => setBinFlag((prev) => !prev)}
-          className="cursor-pointer hover:scale-150 duration-300 active:scale-98"
+          className="cursor-pointer hover:scale-150 duration-400 active:scale-98"
           src="./recycle.png"
           alt=""
         />
         <img
           onClick={() => setChromeFlag((prev) => !prev)}
-          className="cursor-pointer hover:scale-150 duration-300 active:scale-98"
+          className="cursor-pointer hover:scale-150 duration-400 active:scale-98"
           src="./chrome.png"
           alt=""
         />
         <img
           onClick={() => setFileFlag((prev) => !prev)}
-          className="cursor-pointer hover:scale-150 duration-300 active:scale-98"
+          className="cursor-pointer hover:scale-150 duration-400 active:scale-98"
           src="./file.png"
           alt=""
         />

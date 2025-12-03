@@ -1,30 +1,39 @@
 import React, { useContext, useState } from "react";
 import { MyContext } from "../context/MyContext";
+import { motion } from "motion/react";
+import { Maximize, X } from "lucide-react";
 
 const File = () => {
   const { setFileFlag } = useContext(MyContext);
 
   return (
-    <div
-      className={`bin h-100 w-150 rounded-sm bg-white absolute bottom-25 left-165`}
+    <motion.div
+      animate={{
+        y: -100,
+        left: 900,
+        top: 140,
+        opacity: 1,
+        transition: { duration: 0.3, ease: "easeInOut" },
+      }}
+      className={`bin h-100 w-150 rounded-sm bg-white absolute bottom-0 left-170`}
     >
       <div className="w-full flex items-center justify-between border-b border-gray-300">
         <img src="./file.png" />
-        <div className="flex items-center gap-4">
+        <div className="">
           <button
-            className="bg-blue-500 px-4 py-1 rounded-md font-bold text-white"
+            className="cursor-pointer border p-3 border-gray-400 font-bold text-black"
           >
-            Max
+            <Maximize />
           </button>
           <button
             onClick={() => setFileFlag((prev) => !prev)}
-            className="bg-blue-500 px-4 py-1 rounded-md font-bold text-white"
+            className="cursor-pointer p-3 border-r border-t border-b border-gray-400 font-bold text-black"
           >
-            Min
+            <X />
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

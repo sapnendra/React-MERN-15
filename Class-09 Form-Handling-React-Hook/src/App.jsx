@@ -11,7 +11,7 @@ const images = [
 ];
 
 const App = () => {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   const registeredUsers = JSON.parse(localStorage.getItem("users")) || [];
   const [usersArray, setUsersArray] = useState(() => {
     return registeredUsers;

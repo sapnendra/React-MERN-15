@@ -15,21 +15,12 @@ const Login = ({ setToggle }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const regUsers = JSON.parse(localStorage.getItem("users"));
-
-    const flag = regUsers.find((u) => u.username === user.username);
-
-    if (flag) {
-      toast.error("User not exists", {
-        position: "top-left",
-      });
-      return;
-    }
+    const regUsers = JSON.parse(localStorage.getItem("users")) || [];
 
     const found = regUsers.find(
       (u) =>
         u.username?.toString().trim() === user.username.toString().trim() &&
-        u.password === user.password
+        u.password.toString().trim() === user.password.toString().trim()
     );
 
     if (found) {
@@ -60,7 +51,7 @@ const Login = ({ setToggle }) => {
           name="username"
           value={user.username}
           onChange={(e) => handleChange(e)}
-          className="rounded-lg border border-gray-600 px-5 py-2 text-white text-white"
+          className="rounded-lg border border-gray-600 px-5 py-2 text-white"
           type="text"
           placeholder="username"
         />
@@ -68,7 +59,7 @@ const Login = ({ setToggle }) => {
           name="password"
           value={user.password}
           onChange={(e) => handleChange(e)}
-          className="rounded-lg border border-gray-600 px-5 py-2 text-white text-white"
+          className="rounded-lg border border-gray-600 px-5 py-2 text-white"
           type="password"
           placeholder="Password"
         />
